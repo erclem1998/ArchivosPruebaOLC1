@@ -12,6 +12,7 @@ En este folder se encontrarán los archivos de prueba .olc correspondientes al p
     - Siguientes
     - Transiciones
     - AFD
+    - Salidas
 
 ### Nota:
 - En la carpeta Pruebas, se encontrarán los archivos creados por los auxiliares del curso.
@@ -24,3 +25,4 @@ En este folder se encontrarán los archivos de prueba .olc correspondientes al p
         - Siguientes
         - Transiciones
         - AFD
+        - Salidas

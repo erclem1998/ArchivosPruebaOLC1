@@ -1,0 +1,32 @@
+[
+    {
+        "Valor": "'cadena entre comilla simple'",
+        "ExpresionRegular": "EXP5",
+        "Resultado": "Cadena Válida"
+    },
+    {
+        "Valor": "P-385fde",
+        "ExpresionRegular": "P1",
+        "Resultado": "Cadena Válida"
+    },
+    {
+        "Valor": "P388fdc#Mundo",
+        "ExpresionRegular": "P1",
+        "Resultado": "Cadena Válida"
+    },
+    {
+        "Valor": "P38df8c",
+        "ExpresionRegular": "P1",
+        "Resultado": "Cadena Inválida"
+    },
+    {
+        "Valor": "P-38df8k",
+        "ExpresionRegular": "P1",
+        "Resultado": "Cadena Inválida"
+    },
+    {
+        "Valor": "K-385ffk",
+        "ExpresionRegular": "P1",
+        "Resultado": "Cadena Inválida"
+    }
+]

@@ -1,0 +1,17 @@
+[
+    {
+        "Valor": "@yAsaLioComPI_1",
+        "ExpresionRegular": "igusername",
+        "Resultado": "Cadena Válida"
+    },
+    {
+        "Valor": "15/03/2021",
+        "ExpresionRegular": "fecha",
+        "Resultado": "Cadena Inválida"
+    },
+    {
+        "Valor": "hola#Mundo",
+        "ExpresionRegular": "erAzar",
+        "Resultado": "Cadena Inválida"
+    }
+]

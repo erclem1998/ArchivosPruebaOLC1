@@ -1,0 +1,33 @@
+// #############  Los comentarios en cualquier posicion deben ignorarse ################
+
+{
+
+CONJ: num -> 0,1,2,3,4,5,6,7,8,9;
+CONJ: minus ->a~z;
+CONJ: mayus -> A,B,C,D,E,F,G,H,I,J,K,L,M,N,O,P,Q,R,S,T,U,V,W,X,Y,Z;
+CONJ: simbols - > #~@;
+
+// COMENTARIO
+
+igusername -> . . "@" | {minus} {mayus} * | | | {minus} {mayus} {num} "_" ; // en infijo es "@".({minus}|{mayus}).({minus}|{mayus}|{num}|"_")*
+<!
+       Expresion Regular para una fecha (forma sencilla)
+!>
+fecha -> . {num} . {num} . "/" . {num} . {num} . "/" . {num} . {num} . {num} {num}; 
+erAzar -> . + {simbols} + | {minus} {mayus};
+
+%%
+%%
+igusername : "@yAsaLioComPI_1"; //correcto
+fecha : "15/03/2021"; //correcto
+erAzar: "hola#Mundo";//incorrecto
+}
+
+<!
+Esto debería ignorarse ##$
+
+
+
+#YASALIOCOMPI 1
+
+!>

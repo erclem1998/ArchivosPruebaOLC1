@@ -6,7 +6,7 @@ CONJ: letra -  > a~z;
 CONJ: digito -  > 0~9;
 CONJ: posibles -   > P, C, O; 
 
-EXP5  -   > . \' . + | | | | | \n {minus} {mayus} {letra} {digito} " " \';
+EXP5  -   > . \' . + | | | | \n {minus} {mayus} {digito} " " \';
 Pl -   >  . {posibles} . ? "-"  . {digito} . {digito} . {digito}  . {letra}  . {letra} {letra};
 %%
 %%

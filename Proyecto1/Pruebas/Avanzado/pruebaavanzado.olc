@@ -11,9 +11,9 @@ Pl -   >  . {posibles} . ? "-"  . {digito} . {digito} . {digito}  . {letra}  . {
 %%
 %%
 EXP5 : "\'cadena entre comilla simple\'";
-P1 : "P-385fde"; // bueno
-P1 : "P388fdc"; // bueno
-P1 : "P38df8c"; // malo
-P1 : "P-38df8k";  // malo
-P1 : "K-385ffk";  // malo
+Pl : "P-385fde"; // bueno
+Pl : "P388fdc"; // bueno
+Pl : "P38df8c"; // malo
+Pl : "P-38df8k";  // malo
+Pl : "K-385ffk";  // malo
 }

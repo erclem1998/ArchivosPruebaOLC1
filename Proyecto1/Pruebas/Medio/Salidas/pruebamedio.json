@@ -7,7 +7,7 @@
     {
         "Valor": "15/03/2021",
         "ExpresionRegular": "fecha",
-        "Resultado": "Cadena Inválida"
+        "Resultado": "Cadena Válida"
     },
     {
         "Valor": "hola#Mundo",

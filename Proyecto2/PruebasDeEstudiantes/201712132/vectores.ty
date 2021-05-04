@@ -1,0 +1,340 @@
+//DECLARACION DE VECTOR A ORDENAR POR BUBBLE SORT
+int [] enteros = new int[10];
+//ASIGNACION DE VALORES A VECTOR POR BUBBLE SORT
+enteros[0]=10;
+enteros[1]=5;
+enteros[2]=8;
+enteros[3]=1;
+enteros[4]=3;
+enteros[5]=7;
+enteros[6]=9;
+enteros[7]=6;
+enteros[8]=2;
+enteros[9]=4;
+
+double [] decimales = {3.2,(double)5,4.5,(double)1,0.25,10.0,7.5,(double)-8.5};
+string [] tablas = {"Tabla del 1","Tabla del 2","Tabla del 3","Tabla del 4","Tabla del 5","Tabla del 6","Tabla del 7","Tabla del 8","Tabla del 9","Tabla del 10"};
+char   [] abecedario = new char[26];
+
+void main(){
+	print("######## Enteros ########");
+    print("Vector Desordenado:");
+    printEnteros();
+    print("Vector Ordenado:");
+    SortEnteros();
+    printEnteros();
+  	print("Pares:");
+    printPares();
+  	print("");
+    print("");
+    print("######## Decimales ########");
+    print("Vector Desordenado:");
+    printDecimales();
+    SortDecimales(length(decimales));
+    print("Vector Ordenado:");
+    printDecimales();
+    print("");
+  	print("######## Tablas ########");
+  	TablasdeMultiplicar();
+  	print("######## Abecedario ########");
+  	fillAbecedario();
+  	printTriangulo();
+ 	
+}
+
+void fillAbecedario(){
+	for(int i=0; i<length(abecedario);i++){
+    	abecedario[i] = (char)97+i;
+    }
+}
+//OBTIENE EL VALOR DEL INDICE PASADO DEL VECTOR BUBBLE SORT
+int getVal(int indice){
+	return enteros[indice];
+}
+
+void printTriangulo(){
+    for(int i=0; i<length(abecedario);i++){
+    	int indice=0;
+      	string fila;
+      	do{       
+         fila = fila + toString(abecedario[indice]);
+         indice++;
+        }while(indice<i);
+      	print(fila);
+    }
+}
+
+
+void printEnteros(){
+  	string cadena =" ";
+    for(int i=0; i<10;i++){
+    	cadena = cadena + " | " + getVal(i);
+    }
+   
+   print(cadena);
+}
+void printPares(){
+  	string cadena =" ";
+    for(int i=0; i<10;i++){
+      	boolean espar;
+      	espar = enteros[i]%2==0?true:false;
+      	if(espar){
+        	cadena = cadena + " | " + enteros[i];
+        }else{
+        
+        }
+    } 
+   print(cadena);
+}
+
+void printDecimales(){
+  	string cadena =" ";
+  	
+    for(int i=0; i<8;i++){
+
+    	cadena = cadena + " | " + decimales[i];
+    }
+   
+   print(cadena);
+}
+
+//ORDENA EL VECTOR BUBBLE SORT
+void SortEnteros(){
+   
+    int n =length(enteros);
+    n = length(enteros);
+    for(int i = 0; i < n; i++)
+    {
+        for(int j = 0; j < n-i-1; j++)
+        {
+            if( enteros[j] > enteros[j+1])
+            {
+                // swap the elements
+                int temp;
+                temp = enteros[j];
+                enteros[j] = enteros[j+1];
+                enteros[j+1] = temp;
+            } 
+        }
+    }            
+ }
+
+void SortDecimales(int n){
+  int intervalo;
+  int i;
+  int j;
+  int k;
+  intervalo = truncate(n/2);
+  while(intervalo>0){
+    	for(i=intervalo; i<n;i++){
+        	j = i - intervalo;
+          	while(j >= 0){
+              	k = j + intervalo;
+                if(decimales[j]<= decimales[k]){
+                	j=-1;
+                }else{
+                	double temp;
+                  	temp = decimales[j];
+                  	decimales[j] = decimales[k];
+                  	decimales[k] = temp;
+                    j = j - intervalo;
+                }     
+             }
+          }
+    	intervalo = truncate(intervalo/2);
+     }
+}
+
+void TablasdeMultiplicar(){
+    for(int i=0; i<length(enteros);i++){
+      	print(tablas[i]);
+    	for(int j=0; j<length(enteros);j++){	
+    		print( (i+1) + " * " + (j+1) + " = " + enteros[i]*enteros[j]);
+    	}
+      	print("");
+        print("");
+    }
+}
+
+exec main();
+
+/*
+	RESULTADOS ESPERADOS
+    
+   	 ######## Enteros ########
+ Vector Desordenado:
+   | 10 | 5 | 8 | 1 | 3 | 7 | 9 | 6 | 2 | 4
+ Vector Ordenado:
+   | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10
+ Pares:
+   | 2 | 4 | 6 | 8 | 10
+ 
+ 
+ ######## Decimales ########
+ Vector Desordenado:
+   | 3.2 | 5 | 4.5 | 1 | 0.25 | 10 | 7.5 | -8.5
+ Vector Ordenado:
+   | -8.5 | 0.25 | 1 | 3.2 | 4.5 | 5 | 7.5 | 10
+ 
+ ######## Tablas ########
+ Tabla del 1
+ 1 * 1 = 1
+ 1 * 2 = 2
+ 1 * 3 = 3
+ 1 * 4 = 4
+ 1 * 5 = 5
+ 1 * 6 = 6
+ 1 * 7 = 7
+ 1 * 8 = 8
+ 1 * 9 = 9
+ 1 * 10 = 10
+ 
+ 
+ Tabla del 2
+ 2 * 1 = 2
+ 2 * 2 = 4
+ 2 * 3 = 6
+ 2 * 4 = 8
+ 2 * 5 = 10
+ 2 * 6 = 12
+ 2 * 7 = 14
+ 2 * 8 = 16
+ 2 * 9 = 18
+ 2 * 10 = 20
+ 
+ 
+ Tabla del 3
+ 3 * 1 = 3
+ 3 * 2 = 6
+ 3 * 3 = 9
+ 3 * 4 = 12
+ 3 * 5 = 15
+ 3 * 6 = 18
+ 3 * 7 = 21
+ 3 * 8 = 24
+ 3 * 9 = 27
+ 3 * 10 = 30
+ 
+ 
+ Tabla del 4
+ 4 * 1 = 4
+ 4 * 2 = 8
+ 4 * 3 = 12
+ 4 * 4 = 16
+ 4 * 5 = 20
+ 4 * 6 = 24
+ 4 * 7 = 28
+ 4 * 8 = 32
+ 4 * 9 = 36
+ 4 * 10 = 40
+ 
+ 
+ Tabla del 5
+ 5 * 1 = 5
+ 5 * 2 = 10
+ 5 * 3 = 15
+ 5 * 4 = 20
+ 5 * 5 = 25
+ 5 * 6 = 30
+ 5 * 7 = 35
+ 5 * 8 = 40
+ 5 * 9 = 45
+ 5 * 10 = 50
+ 
+ 
+ Tabla del 6
+ 6 * 1 = 6
+ 6 * 2 = 12
+ 6 * 3 = 18
+ 6 * 4 = 24
+ 6 * 5 = 30
+ 6 * 6 = 36
+ 6 * 7 = 42
+ 6 * 8 = 48
+ 6 * 9 = 54
+ 6 * 10 = 60
+ 
+ 
+ Tabla del 7
+ 7 * 1 = 7
+ 7 * 2 = 14
+ 7 * 3 = 21
+ 7 * 4 = 28
+ 7 * 5 = 35
+ 7 * 6 = 42
+ 7 * 7 = 49
+ 7 * 8 = 56
+ 7 * 9 = 63
+ 7 * 10 = 70
+ 
+ 
+ Tabla del 8
+ 8 * 1 = 8
+ 8 * 2 = 16
+ 8 * 3 = 24
+ 8 * 4 = 32
+ 8 * 5 = 40
+ 8 * 6 = 48
+ 8 * 7 = 56
+ 8 * 8 = 64
+ 8 * 9 = 72
+ 8 * 10 = 80
+ 
+ 
+ Tabla del 9
+ 9 * 1 = 9
+ 9 * 2 = 18
+ 9 * 3 = 27
+ 9 * 4 = 36
+ 9 * 5 = 45
+ 9 * 6 = 54
+ 9 * 7 = 63
+ 9 * 8 = 72
+ 9 * 9 = 81
+ 9 * 10 = 90
+ 
+ 
+ Tabla del 10
+ 10 * 1 = 10
+ 10 * 2 = 20
+ 10 * 3 = 30
+ 10 * 4 = 40
+ 10 * 5 = 50
+ 10 * 6 = 60
+ 10 * 7 = 70
+ 10 * 8 = 80
+ 10 * 9 = 90
+ 10 * 10 = 100
+ 
+ 
+ ######## Abecedario ########
+ a
+ a
+ ab
+ abc
+ abcd
+ abcde
+ abcdef
+ abcdefg
+ abcdefgh
+ abcdefghi
+ abcdefghij
+ abcdefghijk
+ abcdefghijkl
+ abcdefghijklm
+ abcdefghijklmn
+ abcdefghijklmno
+ abcdefghijklmnop
+ abcdefghijklmnopq
+ abcdefghijklmnopqr
+ abcdefghijklmnopqrs
+ abcdefghijklmnopqrst
+ abcdefghijklmnopqrstu
+ abcdefghijklmnopqrstuv
+ abcdefghijklmnopqrstuvw
+ abcdefghijklmnopqrstuvwx
+ abcdefghijklmnopqrstuvwxy
+
+
+
+*/

@@ -1,0 +1,94 @@
+void hanoi(int num,char A,char C,char B){
+    if(num==1){
+      print("Mueva el bloque " + num + " desde " + A + " hasta  " + c);      
+    }
+    else{
+        hanoi(num-1,A,B,C);
+      print("Mueva el bloque " + num + " desde " + A + " hasta  " + C);
+        hanoi(num-1,B,C,A);
+    }
+}
+ 
+
+/**
+ * RECURSION SIMPLE.
+ */
+int factorial(int n) {
+    if(n == 0) {
+        return 1;
+    } 
+    return n * factorial(n - 1);
+}
+
+/**
+ * RECURSION MULTIPLE.
+ */
+
+int fibonacci(int n) {
+    if (n <= 1) {
+        return n;
+    }
+    return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+/**
+ * RECURSION CRUZADA.
+ */
+
+int par(int num) {
+    if (num == 0) {
+        return 1;
+    }
+    return impar(num - 1);
+}
+
+int impar(int num) {
+    if (num == 0) {
+        return 0;
+    }
+    return par(num - 1);
+}
+
+/**
+ * RECURSION ANIDADA.
+ */
+
+int ackermann(int m, int n) {
+    if (m == 0) {
+        return (n + 1);
+    }
+    if (m > 0 && n == 0) {
+        return ackermann(m - 1, 1);
+    }
+    return ackermann(m - 1, ackermann(m, n - 1));
+}
+
+int ackermannTernario(int m, int n) {
+  return (m == 0 ? n + 1 : ( m > 0 && n == 0 ? ackermann(m - 1, 1) : ackermann(m - 1, ackermann(m, n - 1))));
+}
+
+void main(){
+  print("\n");
+  print("Factorial 12: 479001600");
+  print(factorial(12));
+  print("\n");
+  print("Fibonacci 25: 75025");
+  print(fibonacci(25));
+  print("\n");
+  print("Funcion par: 1");
+  print(par(250));
+  print("\n");
+  print("Ackerman normal 3, 4: 125");
+  print(ackermann(3, 4));
+  print("\n");
+  print("Ackerman ternario 3, 7: 1021");
+  print(ackermannTernario(3, 7));
+  
+  int n = 5;
+  print("\n");
+  print("Los clavijas son A B C");
+  print("Numero de discos: " + n);
+  hanoi(n,'A','C','B');   
+}
+
+exec main();
